@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"workspaceName": {
+			"value": "kr-sysnpase-ws"
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"kr-sysnpase-ws-WorkspaceDefaultSqlServer_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:kr-sysnpase-ws.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
+		"storagegen2kr_accountKey": {
+			"value": ""
+		},
+		"kr-sysnpase-ws-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://storagesynapsews.dfs.core.windows.net"
+		},
+		"storagegen2kr_properties_typeProperties_url": {
+			"value": "https://storagegen2kr.dfs.core.windows.net/"
+		}
+	}
+}
