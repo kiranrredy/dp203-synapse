@@ -1,0 +1,17 @@
+{
+	"name": "create_product_dim_with_sk",
+	"properties": {
+		"content": {
+			"query": "\nCREATE TABLE [dbo].[DimProduct_sk]\n( \n\t[ProductSK] [int]  NOT NULL,\n\t[ProductID] [int]  NOT NULL,\n\t[ProductModelID] [int]  NOT NULL,\n\t[ProductcategoryID] [int]  NOT NULL,\n\t[ProductName] [varchar](50)  NOT NULL,\n\t[ProductModelName] [varchar](50)  NULL,\n\t[ProductCategoryName] [varchar](50)  NULL\n);\n\n\nselect * from [dbo].[DimProduct_sk] order by ProductSK;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "dedicatedpool",
+				"poolName": "dedicatedpool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

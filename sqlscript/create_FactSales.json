@@ -1,0 +1,20 @@
+{
+	"name": "create_FactSales",
+	"properties": {
+		"folder": {
+			"name": "adf_scripts"
+		},
+		"content": {
+			"query": "CREATE TABLE [dbo].[FactSales](\n\t[ProductID] [int] NOT NULL,\n\t[SalesOrderID] [int] NOT NULL,\n\t[CustomerID] [int] NOT NULL,\n\t[OrderQty] [smallint] NOT NULL,\n\t[UnitPrice] [money] NOT NULL,\n\t[OrderDate] [datetime] NULL,\n\t[TaxAmt] [money] NULL\n)\nWITH  \n(   \n    DISTRIBUTION = HASH (CustomerID)\n);\n\n\nCREATE TABLE [dbo].[FactSales_derived_column](\n\t[ProductID] [int] NOT NULL,\n\t[SalesOrderID] [int] NOT NULL,\n\t[CustomerID] [int] NOT NULL,\n\t[OrderQty] [smallint] NOT NULL,\n\t[UnitPrice] [money] NOT NULL,\n\t[OrderDate] [datetime] NULL,\n\t[TaxAmt] [money] NULL,\n    [TotalAmount] [money] NOT NULL\n)\nWITH  \n(   \n    DISTRIBUTION = HASH (CustomerID)\n);\n\nselect TOP(10) * from FactSales_derived_column;\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "dedicatedpool",
+				"poolName": "dedicatedpool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

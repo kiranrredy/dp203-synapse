@@ -1,0 +1,17 @@
+{
+	"name": "openrowset",
+	"properties": {
+		"content": {
+			"query": "select * \nFROM OPENROWSET(BULK 'https://storagegen2kr.blob.core.windows.net/container-parquet/*.parquet',\n            FORMAT='Parquet')\nas logdata_openrowset",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "appdb",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"name": "FactSales_hash_table",
+	"properties": {
+		"content": {
+			"query": "drop TABLE [dbo].[FactSales];\nCREATE TABLE [dbo].[FactSales](\n\t[ProductID] [int] NOT NULL,\n\t[SalesOrderID] [int] NOT NULL,\n\t[CustomerID] [int] NOT NULL,\n\t[OrderQty] [smallint] NOT NULL,\n\t[UnitPrice] [money] NOT NULL,\n\t[OrderDate] [datetime] NULL,\n\t[TaxAmt] [money] NULL\n)\nWITH  \n(   \n    DISTRIBUTION = HASH (CustomerID)\n)\n;\n\nSELECT * FROM [dbo].[FactSales]",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "dedicatedpool",
+				"poolName": "dedicatedpool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

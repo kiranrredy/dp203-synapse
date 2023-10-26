@@ -1,0 +1,20 @@
+{
+	"name": "SQL script 1",
+	"properties": {
+		"folder": {
+			"name": "adf_scripts"
+		},
+		"content": {
+			"query": "-- DELETE from [dbo].[FactSales];\n\nselect *  FROM [dbo].[FactSales]\nselect *  FROM [dbo].DimCustomer\nselect count(*) FROM [dbo].DimProduct\n\nselect * from [dbo].[DimProduct_SK]\n\n-- delete from [dbo].[DimCustomer_SK];\nselect top(500) * from [dbo].[DimCustomer_SK] ORDER by customerSk asc\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "dedicatedpool",
+				"poolName": "dedicatedpool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

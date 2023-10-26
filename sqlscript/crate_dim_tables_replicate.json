@@ -1,0 +1,17 @@
+{
+	"name": "crate_dim_tables_replicate",
+	"properties": {
+		"content": {
+			"query": "drop TABLE [dbo].[DimCustomer];\n\nCREATE TABLE [dbo].[DimCustomer](\n\t[CustomerID] [int] NOT NULL,\n    [CompanyName] varchar(200) NOT NULL,\n\t[SalesPerson] varchar(300) NOT NULL\t\t\n)\nWITH(\n    Distribution = REPLICATE\n)\n;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "dedicatedpool",
+				"poolName": "dedicatedpool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

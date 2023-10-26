@@ -1,0 +1,17 @@
+{
+	"name": "queries_replication_tables",
+	"properties": {
+		"content": {
+			"query": "SELECT COUNT(dtct.[CustomerID]),[SalesPerson]\nFROM [dbo].[DimCustomer] AS dtct JOIN [dbo].[FactSales] ftsl\nON dtct.[CustomerID]=ftsl.[CustomerID]\nGROUP BY dtct.[SalesPerson]",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "dedicatedpool",
+				"poolName": "dedicatedpool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

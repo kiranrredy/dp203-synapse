@@ -1,0 +1,17 @@
+{
+	"name": "dedicated_pol_parquet",
+	"properties": {
+		"content": {
+			"query": "\nCREATE MASTER KEY ENCRYPTION BY PASSWORD = 'P@ssword@123';\n\ncreate DATABASE SCOPED CREDENTIAL CredSaasToken3\nWITH IDENTITY = 'SHARED ACCESS SIGNATURE',\nSECRET='sv=2022-11-02&ss=bt&srt=sco&sp=rwlcuy&se=2023-10-27T20:20:33Z&st=2023-10-20T12:20:33Z&spr=https&sig=9CqopMWJAGr2KUxkKaOU0D4h67K5Spna5K5Rzo23%2Fog%3D'\n;\n\ncreate EXTERNAL DATA SOURCE ds_log_data_31 \nwith (LOCATION='https://storagegen2kr.blob.core.windows.net/container-parquet',\n        CREDENTIAL = CredSaasToken3);\n\nCREATE EXTERNAL FILE FORMAT ParquetFileFormat WITH(\n    FORMAT_TYPE= PARQUET,\n    DATA_COMPRESSION='org.apache.hadoop.io.compress.SnappyCodec'\n);\n\ndrop EXTERNAL TABLE logdata_parquet;\nCREATE EXTERNAL TABLE [logdata_parquet]\n(\n    [Correlationid] [varchar](200) NULL,\n\t[Operationname] [varchar](200) NULL,\n\t[Status] [varchar](100) NULL,\n\t[Eventcategory] [varchar](100) NULL,\n\t[Level] [varchar](100) NULL,\n\t[Time] [varchar](100) NULL,\n\t[Subscription] [varchar](200) NULL,\n\t[Eventinitiatedby] [varchar](1000) NULL,\n\t[Resourcetype] [varchar](1000) NULL,\n\t[Resourcegroup] [varchar](1000) NULL,\n    [Resource] [varchar](2000) NULL)\nWITH(\n    LOCATION='/',\n    DATA_SOURCE=ds_log_data_31,\n    FILE_FORMAT=ParquetFileFormat\n);\n\nSELECT top 10 * FROM [logdata_parquet] ;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "dedicatedpool",
+				"poolName": "dedicatedpool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

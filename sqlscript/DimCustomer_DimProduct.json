@@ -1,0 +1,20 @@
+{
+	"name": "DimCustomer_DimProduct",
+	"properties": {
+		"folder": {
+			"name": "adf_scripts"
+		},
+		"content": {
+			"query": "\nCREATE TABLE [dbo].[DimCustomer](\n\t[CustomerID] [int] NOT NULL,\n    [CompanyName] varchar(200) NOT NULL,\n\t[SalesPerson] varchar(300) NOT NULL\n)\n    WITH  \n(   \n    DISTRIBUTION = REPLICATE\n);\n\nCREATE TABLE [dbo].[DimProduct](\n\t[ProductID] [int] NOT NULL,\n\t[ProductModelID] [int] NOT NULL,\n\t[ProductcategoryID] [int] NOT NULL,\n\t[ProductName] varchar(50) NOT NULL,\t\n\t[ProductModelName] varchar(50) NULL,\n\t[ProductCategoryName] varchar(50) NULL\n)\nWITH  \n(   \n    DISTRIBUTION = REPLICATE\n);\t\n\ndrop table [dbo].[DimProduct_SK];\nCREATE TABLE [dbo].[DimProduct_SK](\n    [ProductSK] [int] NOT NULL,\n\t[ProductID] [int] NOT NULL,\n\t[ProductModelID] [int] NOT NULL,\n\t[ProductcategoryID] [int] NOT NULL,\n\t[ProductName] varchar(50) NOT NULL,\t\n\t[ProductModelName] varchar(50) NULL,\n\t[ProductCategoryName] varchar(50) NULL\n)\nWITH  \n(   \n    DISTRIBUTION = REPLICATE\n);\n\n\nCREATE TABLE [dbo].[DimCustomer_SK](\n    [CustomerSK] [int] NOT NULL,\n\t[CustomerID] [int] NOT NULL,\n    [CompanyName] varchar(200) NOT NULL,\n\t[SalesPerson] varchar(300) NOT NULL\n)\n    WITH  \n(   \n    DISTRIBUTION = REPLICATE\n);",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "dedicatedpool",
+				"poolName": "dedicatedpool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

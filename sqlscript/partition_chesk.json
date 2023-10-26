@@ -1,0 +1,17 @@
+{
+	"name": "partition_chesk",
+	"properties": {
+		"content": {
+			"query": "DBCC PDW_SHOWSPACEUSED('[dbo].[pool_logdata]')\n\n\nSELECT FORMAT(Time,'yyyy-MM-dd') AS dt,COUNT(*) AS 'Number of Operations' \nFROM [pool_logdata]\nGROUP BY FORMAT(Time,'yyyy-MM-dd')",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "dedicatedpool",
+				"poolName": "dedicatedpool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

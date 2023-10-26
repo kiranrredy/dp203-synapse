@@ -1,0 +1,17 @@
+{
+	"name": "create_dim_tables",
+	"properties": {
+		"content": {
+			"query": "drop TABLE [dbo].[DimCustomer];\n\nCREATE TABLE [dbo].[DimCustomer](\n\t[CustomerID] [int] NOT NULL,\n    [CompanyName] varchar(200) NOT NULL,\n\t[SalesPerson] varchar(300) NOT NULL\t\t\n)\n;\n\nCREATE TABLE [dbo].[DimProduct](\n\t[ProductID] [int] NOT NULL,\n\t[ProductModelID] [int] NOT NULL,\n\t[ProductcategoryID] [int] NOT NULL,\n\t[ProductName] varchar(50) NOT NULL,\t\n\t[ProductModelName] varchar(50) NULL,\n\t[ProductCategoryName] varchar(50) NULL\n);",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "dedicatedpool",
+				"poolName": "dedicatedpool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

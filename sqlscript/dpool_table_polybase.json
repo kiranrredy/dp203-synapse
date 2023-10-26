@@ -1,0 +1,17 @@
+{
+	"name": "dpool_table_polybase",
+	"properties": {
+		"content": {
+			"query": "select * from sys.database_scoped_credentials;\nselect * from sys.external_data_sources;\nselect * from sys.external_file_formats;\n\n-- drop table pool_logdata_parquet;\n\nCREATE table pool_logdata_parquet_2\nwith (\n    DISTRIBUTION = ROUND_ROBIN\n)\nAS\nselect * FROM logdata_parquet;\n\nselect * from pool_logdata_parquet_2;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "dedicatedpool",
+				"poolName": "dedicatedpool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

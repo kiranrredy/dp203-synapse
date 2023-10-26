@@ -1,0 +1,20 @@
+{
+	"name": "Customercourse",
+	"properties": {
+		"folder": {
+			"name": "adf_scripts"
+		},
+		"content": {
+			"query": "CREATE TABLE [Customercourse]\n(\n    [CustomerID] int,\n    [CustomerName] varchar(200),\n    [Registered] BIT,\n    [Courses] varchar(200)\n);\n\nDROP TABLE [Customercourse];\nCREATE TABLE [Customercourse]\n(\n    [CustomerID] int,\n    [CustomerName] varchar(200),\n    [Registered] BIT,\n    [Courses] varchar(200),\n    [Mobile] varchar(200),\n    [City] varchar(200)\n);\n\nselect * from Customercourse;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "dedicatedpool",
+				"poolName": "dedicatedpool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
